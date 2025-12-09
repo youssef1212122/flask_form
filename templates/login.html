@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="ltr">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - نظام مبهر</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- دوائر متحركة في الخلفية -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
     <div class="form-card">
-        <h2>Welcome Back 👋</h2>
+        <h2>🌟 welcome back</h2>
+
+        {% if error %}
+        <div class="message error">{{ error }}</div>
+        {% endif %}
 
         <form method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <div class="input-group">
+                <input type="text" name="username" placeholder="✨ Username" required autocomplete="username">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" name="password" placeholder="🔐 Password" required autocomplete="current-password">
+            </div>
+            
+            <button type="submit">login</button>
         </form>
 
-        <a href="/signup">Create new account</a>
+        <a href="/signup">💫 Create New Account</a>
     </div>
 </body>
 </html>

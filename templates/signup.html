@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="ltr">
 <head>
-    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - نظام مبهر</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- دوائر متحركة في الخلفية -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
     <div class="form-card">
-        <h2>Create Account 📝</h2>
+        <h2>🚀 welcome 🚀</h2>
+
+        {% if error %}
+        <div class="message error">{{ error }}</div>
+        {% endif %}
 
         <form method="POST">
-            <input type="text" name="username" placeholder="Choose a username" required>
-            <input type="password" name="password" placeholder="Choose a password" required>
-            <button type="submit">Sign Up</button>
+            <div class="input-group">
+                <input type="text" name="username" placeholder="✨ Choose Username" required autocomplete="username">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" name="password" placeholder="🔐 Create Password" required autocomplete="new-password">
+            </div>
+            
+            <button type="submit">signup</button>
         </form>
 
-        <a href="/login">Already have an account?</a>
+        <a href="/login">💎 Already Have Account?</a>
     </div>
 </body>
 </html>
