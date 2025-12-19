@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - {{ username }}</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- خلفية متحركة -->
+    <div class="bg-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Dashboard</span>
+            </div>
+            <div class="nav-user">
+                <span class="user-name">👋 {{ username }}</span>
+                <a href="/logout" class="logout-btn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1 class="welcome-title">Welcome Back, <span class="highlight">{{ username }}</span>! 🎉</h1>
+            <p class="welcome-subtitle">Here's what's happening with your account today</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card card-1">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <h3 class="stat-number">1,234</h3>
+                    <p class="stat-label">Total Views</p>
+                </div>
+                <div class="stat-trend">↗ +12%</div>
+            </div>
+
+            <div class="stat-card card-2">
+                <div class="stat-icon">💎</div>
+                <div class="stat-info">
+                    <h3 class="stat-number">567</h3>
+                    <p class="stat-label"> {{ username }} Projects</p>
+                </div>
+                <div class="stat-trend">↗ +8%</div>
+            </div>
+
+            <div class="stat-card card-3">
+                <div class="stat-icon">🚀</div>
+                <div class="stat-info">
+                    <h3 class="stat-number">89</h3>
+                    <p class="stat-label">Active Tasks</p>
+                </div>
+                <div class="stat-trend">↘ -3%</div>
+            </div>
+
+            <div class="stat-card card-4">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-info">
+                    <h3 class="stat-number">4.8</h3>
+                    <p class="stat-label">Rating</p>
+                </div>
+                <div class="stat-trend">↗ +0.3</div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Activity Section -->
+            <div class="activity-card">
+                <div class="card-header">
+                    <h2>📈 Recent Activity</h2>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon success">✓</div>
+                        <div class="activity-content">
+                            <p class="activity-text">Project "Website Redesign" completed</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon info">📝</div>
+                        <div class="activity-content">
+                            <p class="activity-text">New task assigned to you</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon warning">⚡</div>
+                        <div class="activity-content">
+                            <p class="activity-text">System update available</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon success">🎯</div>
+                        <div class="activity-content">
+                            <p class="activity-text">Goal achieved: 100% completion</p>
+                            <span class="activity-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="actions-card">
+                <div class="card-header">
+                    <h2>⚡ Quick Actions</h2>
+                </div>
+                <div class="actions-grid">
+                    <button class="action-btn btn-primary">
+                        <span class="action-icon">➕</span>
+                        <span class="action-text">New Project</span>
+                    </button>
+                    <button class="action-btn btn-secondary">
+                        <span class="action-icon">📄</span>
+                        <span class="action-text">Reports</span>
+                    </button>
+                    <button class="action-btn btn-accent">
+                        <span class="action-icon">⚙️</span>
+                        <span class="action-text">Settings</span>
+                    </button>
+                    <button class="action-btn btn-info">
+                        <span class="action-icon">💬</span>
+                        <span class="action-text">Messages</span>
+                    </button>
+                </div>
+
+                <!-- Progress Section -->
+                <div class="progress-section">
+                    <h3 class="progress-title">Monthly Goals</h3>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Projects Completed</span>
+                            <span class="progress-value">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Tasks Finished</span>
+                            <span class="progress-value">60%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Cards -->
+        <div class="bottom-grid">
+            <div class="info-card">
+                <div class="info-icon">🔥</div>
+                <h3>Trending Now</h3>
+                <p>Check out the hottest projects in your network</p>
+                <button class="info-btn">Explore →</button>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🎓</div>
+                <h3>Learning Hub</h3>
+                <p>New courses and tutorials available</p>
+                <button class="info-btn">Start Learning →</button>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">👥</div>
+                <h3>Community</h3>
+                <p>Connect with other users and share ideas</p>
+                <button class="info-btn">Join Now →</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
