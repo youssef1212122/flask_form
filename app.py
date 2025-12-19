@@ -5,7 +5,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.secret_key = "your_secret_key_change_in_production"
 
-# ===== Database Setup =====
 def init_db():
     conn = sqlite3.connect("database.db")
     c = conn.cursor()
@@ -22,12 +21,9 @@ def init_db():
 
 init_db()
 
-# ===== Helper Functions =====
 def check_auth():
-    """التحقق من تسجيل الدخول"""
     return "user" in session
 
-# ===== Routes =====
 
 @app.route("/")
 def home():
@@ -38,7 +34,6 @@ def home():
 
 @app.route("/dashboard")
 def dashboard():
-    """الصفحة الرئيسية بعد تسجيل الدخول"""
     if not check_auth():
         return redirect("/login")
     
@@ -55,36 +50,33 @@ def signup():
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "")
 
-        # التحقق من البيانات
         if not username or not password:
-            return render_template("signup.html", error="يرجى ملء جميع الحقول")
+            return render_template("signup.html", error="Please fill in all fields")
 
         if len(username) < 3:
-            return render_template("signup.html", error="اسم المستخدم يجب أن يكون 3 أحرف على الأقل")
+            return render_template("signup.html", error="The username must be at least 3 characters long.")
 
         if len(password) < 6:
-            return render_template("signup.html", error="كلمة المرور يجب أن تكون 6 أحرف على الأقل")
+            return render_template("signup.html", error="The password must be at least 6 characters long.")
 
         conn = sqlite3.connect("database.db")
         c = conn.cursor()
 
         try:
-            # تشفير كلمة المرور
             hashed_password = generate_password_hash(password)
             c.execute("INSERT INTO users(username, password) VALUES (?, ?)", 
                       (username, hashed_password))
             conn.commit()
             conn.close()
             
-            # تسجيل الدخول تلقائياً
             session["user"] = username
             return redirect("/dashboard")
         except sqlite3.IntegrityError:
             conn.close()
-            return render_template("signup.html", error="اسم المستخدم موجود بالفعل!")
+            return render_template("signup.html", error="The username already exists")
         except Exception as e:
             conn.close()
-            return render_template("signup.html", error="حدث خطأ، حاول مرة أخرى")
+            return render_template("signup.html", error="An error occurred, please try again.")
 
     return render_template("signup.html")
 
@@ -99,7 +91,7 @@ def login():
         password = request.form.get("password", "")
 
         if not username or not password:
-            return render_template("login.html", error="يرجى ملء جميع الحقول")
+            return render_template("login.html", error="Please fill in all fields")
 
         conn = sqlite3.connect("database.db")
         c = conn.cursor()
@@ -111,14 +103,13 @@ def login():
             session["user"] = username
             return redirect("/dashboard")
         else:
-            return render_template("login.html", error="اسم المستخدم أو كلمة المرور غير صحيحة")
+            return render_template("login.html", error="Incorrect username or password")
 
     return render_template("login.html")
 
 
 @app.route("/logout")
 def logout():
-    """تسجيل الخروج"""
     session.pop("user", None)
     return redirect("/login")
 

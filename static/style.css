@@ -1,4 +1,3 @@
-/* ===== GLOBAL RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +15,6 @@ body {
     overflow: hidden;
 }
 
-/* ===== خلفية متحركة مبهرة ===== */
 body::before {
     content: '';
     position: absolute;
@@ -34,7 +32,6 @@ body::before {
     100% { transform: rotate(360deg); }
 }
 
-/* ===== دوائر متحركة في الخلفية ===== */
 .circle {
     position: absolute;
     border-radius: 50%;
@@ -72,7 +69,6 @@ body::before {
     50% { transform: translateY(-30px) scale(1.1); }
 }
 
-/* ===== FORM CARD ===== */
 .form-card {
     width: 420px;
     padding: 50px 45px;
@@ -90,7 +86,6 @@ body::before {
     z-index: 10;
 }
 
-/* تأثير ضوء متحرك حول الكارد */
 .form-card::before {
     content: '';
     position: absolute;
@@ -136,14 +131,12 @@ h2 {
     50% { background-position: 100% 50%; }
 }
 
-/* ===== INPUT GROUP ===== */
 .input-group {
     position: relative;
     margin-bottom: 25px;
 }
 
-/* ===== INPUTS ===== */
-input {
+\input {
     width: 100%;
     padding: 16px 20px;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -168,13 +161,11 @@ input:focus {
                 inset 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
-/* تأثير وهج عند الكتابة */
 input:not(:placeholder-shown) {
     border-color: #ff00ff;
     box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);
 }
 
-/* ===== BUTTON ===== */
 button {
     width: 100%;
     padding: 16px;
@@ -195,7 +186,6 @@ button {
     overflow: hidden;
 }
 
-/* تأثير موجة على الزر */
 button::before {
     content: '';
     position: absolute;
@@ -230,7 +220,6 @@ button:active {
     transform: translateY(-2px) scale(0.98);
 }
 
-/* ===== LINKS ===== */
 a {
     display: inline-block;
     margin-top: 25px;
@@ -265,7 +254,6 @@ a:hover {
                  0 0 40px rgba(0, 255, 255, 0.6);
 }
 
-/* ===== MESSAGE STYLES ===== */
 .message {
     padding: 14px 22px;
     margin-bottom: 25px;
@@ -290,7 +278,6 @@ a:hover {
     box-shadow: 0 0 30px rgba(255, 50, 100, 0.3);
 }
 
-/* ===== ANIMATIONS ===== */
 @keyframes cardEntrance {
     0% { 
         opacity: 0; 
@@ -315,7 +302,6 @@ a:hover {
     }
 }
 
-/* شرارات متطايرة */
 .sparkle {
     position: absolute;
     width: 4px;
@@ -337,7 +323,6 @@ a:hover {
     }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
     .form-card {
         width: 90%;
