@@ -44,7 +44,7 @@ def dashboard():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if check_auth():
-        return redirect("/login")
+        return redirect("/dashboard")
     
     if request.method == "POST":
         username = request.form.get("username", "").strip()
@@ -102,6 +102,7 @@ def login():
             return redirect("/dashboard")
         else:
             return render_template("login.html", error="Incorrect username or password")
+        
     return render_template("login.html")
 
 
