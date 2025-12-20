@@ -44,7 +44,7 @@ def dashboard():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if check_auth():
-        return redirect("/dashboard")
+        return redirect("/login")
     
     if request.method == "POST":
         username = request.form.get("username", "").strip()
@@ -69,8 +69,7 @@ def signup():
             conn.commit()
             conn.close()
             
-            session["user"] = username
-            return redirect("/dashboard")
+            return redirect("/login")
         except sqlite3.IntegrityError:
             conn.close()
             return render_template("signup.html", error="The username already exists")
@@ -79,7 +78,6 @@ def signup():
             return render_template("signup.html", error="An error occurred, please try again.")
 
     return render_template("signup.html")
-
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -104,7 +102,6 @@ def login():
             return redirect("/dashboard")
         else:
             return render_template("login.html", error="Incorrect username or password")
-
     return render_template("login.html")
 
 
